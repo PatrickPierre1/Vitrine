@@ -16,14 +16,18 @@
                         $consulta->execute();
                         $dados = $consulta->fetchAll(PDO::FETCH_OBJ);
                         
+                        // Utilizado o foreach para selecionar os dados a serem exibidos
                         foreach($dados as $dado) {
                     ?>
                         <!-- Criação das TR -->
                         <tr>
+                            <!-- Exibindo os objetos dos dados -->
                             <td><?= $dado->id?></td>
                             <td><?= $dado->nome?></td>
                         </tr>
+                        <!-- Abrindo um php para fechar a chave foreach para conseguir criar varios td -->
                     <?php 
+                        // Fechando a chave do foreach
                         }
                     ?>
                 </tbody>
