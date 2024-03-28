@@ -7,9 +7,9 @@
         <h2 class="text-center">Cadastros de Categorias</h2>
 
         <label for="nome">Nome da categoria</label>
-        <input class="form-control" type="text" id="nome" name="nome" required><br>
+        <input autocomplete="off" class="form-control" type="text" id="nome" name="nome" required><br>
 
-        <input class="form-control btn btn-primary" type="submit" value="Salvar" name="submit">
+        <input class="form-control btn btn-primary" type="submit" value="Salvar">
 
     </form>
     

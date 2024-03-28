@@ -24,6 +24,7 @@
                             <!-- Exibindo os objetos dos dados -->
                             <td><?= $dado->id?></td>
                             <td><?= $dado->nome?></td>
+                            <td><a class="btn btn-info" href="atualizar/categorias/<?=$dado->id?>">Atualizar</a></td>
                         </tr>
                         <!-- Abrindo um php para fechar a chave foreach para conseguir criar varios td -->
                     <?php 
