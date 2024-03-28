@@ -24,7 +24,10 @@
                             <!-- Exibindo os objetos dos dados -->
                             <td><?= $dado->id?></td>
                             <td><?= $dado->nome?></td>
-                            <td><a class="btn btn-info" href="atualizar/categorias/<?=$dado->id?>">Atualizar</a></td>
+                            <td>
+                                <a class="" href="cadastros/categorias/<?=$dado->id?>"><img src="_arquivos/updateLogo.png" alt=""></a>
+                                <a class="" href="cadastros/deletar/<?=$dado->id?>"><img src="_arquivos/deleteLogo.png"" alt=""></a>
+                            </td>
                         </tr>
                         <!-- Abrindo um php para fechar a chave foreach para conseguir criar varios td -->
                     <?php 

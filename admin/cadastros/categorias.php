@@ -5,9 +5,9 @@
 <div class="d-flex justify-content-center align-items-center">
     <form class="form w-25" method="POST" action="salvar/categorias">
         <h2 class="text-center">Cadastros de Categorias</h2>
-
+        <input type="hidden" name="id" value="<?=$id?>">
         <label for="nome">Nome da categoria</label>
-        <input autocomplete="off" class="form-control" type="text" id="nome" name="nome" required><br>
+        <input autocomplete="off" class="form-control" type="text" id="nome" name="nome"><br>
 
         <input class="form-control btn btn-primary" type="submit" value="Salvar">
 
