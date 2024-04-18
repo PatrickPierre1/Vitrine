@@ -26,7 +26,7 @@
                             <td><?= $dado->nome?></td>
                             <td>
                                 <a class="" href="cadastros/categorias/<?=$dado->id?>"><img src="_arquivos/updateLogo.png" alt=""></a>
-                                <a class="" href="cadastros/deletar/<?=$dado->id?>"><img src="_arquivos/deleteLogo.png"" alt=""></a>
+                                <a class="" href="excluir/categorias/<?=$dado->id?>"><img src="_arquivos/deleteLogo.png"" alt=""></a>
                             </td>
                         </tr>
                         <!-- Abrindo um php para fechar a chave foreach para conseguir criar varios td -->

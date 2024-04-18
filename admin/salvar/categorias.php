@@ -5,6 +5,7 @@
         mensagemErro("Preencha o nome da categoria");
     }
     $id = $_POST['id'];
+    
     if(isset($id)) {
 
         $sql = "UPDATE `categoria` SET `nome`= :nome WHERE id = :id";

@@ -14,7 +14,7 @@
 
     if($naoTemLogin && $naoTemSenha) {
 
-        $sql = "SELECT `id`, `nome`, `login`, `senha` FROM `usuarios` WHERE `login` = :login AND `ativo` = 'S'";
+        $sql = "SELECT `id`, `nome`, `login`, `senha` FROM `usuario` WHERE `login` = :login AND `ativo` = 'S'";
         
         $consulta = $pdo->prepare($sql);
         $consulta->bindParam(":login", $login);
