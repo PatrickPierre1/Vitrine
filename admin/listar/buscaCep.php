@@ -1,10 +1,30 @@
 <?php
 $cep = $_POST["cep"] ?? NULL;
 
+if($_POST) {
+    $cep = preg_replace('/\D/', '', $cep);
+    $sql = "SELECT * from endereco WHERE cep = :cep";
+    $consulta = $pdo->prepare($sql);
+    $consulta->bindParam(":cep", $cep);
+    $consulta->execute();
+    $dados = $consulta->fetch(PDO::FETCH_OBJ);
 
-if ($_POST) {
-    $url = "https://viacep.com.br/ws/$cep/json/";
-    $dados = json_decode(file_get_contents($url));
+    if(empty($dados)) {
+        $cep = preg_replace('/\D/', '', $cep);
+        $url = "https://viacep.com.br/ws/$cep/json/";
+        $dados = json_decode(file_get_contents($url));
+        
+        $sql = "INSERT INTO `endereco` (`cep`, `logradouro`, `bairro`, `localidade`, `uf`) VALUES (:cep, :rua, :bairro, :cidade, :estado)";
+        $consulta = $pdo->prepare($sql);
+
+        $consulta->bindParam(":cep", $cep);
+        $consulta->bindParam(":rua", $dados->logradouro);
+        $consulta->bindParam(":bairro", $dados->bairro);
+        $consulta->bindParam(":cidade", $dados->localidade);
+        $consulta->bindParam(":estado", $dados->uf);
+
+        $consulta->execute();
+    }
 }
 
 ?>
@@ -32,13 +52,13 @@ if(!empty($dados)){
         <tbody>
             <tr>
                 <td><?= $dados->cep ?></td>
-                <td><?= $dados->logradouro ?></td>
-                <td><?= $dados->bairro ?></td>
-                <td><?= $dados->localidade ?></td>
-                <td><?= $dados->uf ?></td>
+                <td><?= $dados->logradouro?></td>
+                <td><?= $dados->bairro?></td>
+                <td><?= $dados->localidade?></td>
+                <td><?= $dados->uf?></td>
             </tr>
         </tbody>
     </table>
-<?php 
+<?php   
 }
 ?>
